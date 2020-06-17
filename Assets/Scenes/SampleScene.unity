@@ -258,7 +258,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 347274255}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &272465080
+--- !u!114 &272465082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,6 +270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2237b3b8010d3642b6c1a70dd63687b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fpsCamera: {fileID: 1765820430}
+  range: 100
+  weaponDmg: 10
+  muzzleFlash: {fileID: 1404755948}
+  hitEffect: {fileID: 425498225037670918, guid: cf043c760416f82429e81b22a9d94ea4,
+    type: 3}
 --- !u!1001 &347274255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,6 +822,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f114e6b62ad5134b9ba4e0a01ddc050, type: 3}
+--- !u!1 &1287170393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6922364495910165154, guid: 7a3ac9c7fc99a77449b698660fae92a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6922364496356481387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1287170400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287170393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7784bb6d0dd924e9ae779a14ad4ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 100
 --- !u!1001 &1306804614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,6 +945,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1404755948 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 261894757940080821, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 347274255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1587955623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -986,6 +1017,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc,
     type: 3}
   m_PrefabInstance: {fileID: 596550514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1765820430 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 347274255}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1820792118
 GameObject:
