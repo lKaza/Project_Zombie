@@ -107,9 +107,10 @@ GameObject:
   - component: {fileID: 6922364495910165159}
   - component: {fileID: 6922364495910165152}
   - component: {fileID: 6922364495910165153}
+  - component: {fileID: 5172680999731380750}
   - component: {fileID: 6922364495910165156}
   - component: {fileID: 1287170400}
-  - component: {fileID: 5172680999731380750}
+  - component: {fileID: 3300516376563517862}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -126,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 6922364495910165154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.38, z: -5.09}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 3.25, z: 1}
   m_Children:
   - {fileID: 8975129491992273692}
   m_Father: {fileID: 0}
@@ -215,6 +216,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &5172680999731380750
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6922364495910165154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b832b17a7c6d4a34580c5368ba174a07, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6922364495910165156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,22 +263,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 100
---- !u!95 &5172680999731380750
-Animator:
-  serializedVersion: 3
+--- !u!114 &3300516376563517862
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6922364495910165154}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b832b17a7c6d4a34580c5368ba174a07, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0067542212fb2d94387d349c46a63997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  dmg: 40
