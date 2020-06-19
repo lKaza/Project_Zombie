@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float maxHP=100f;
     
+    
     private float currentHP;
     void Start()
     {
@@ -23,12 +24,14 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDmg(float dmg){
         currentHP -=dmg;
         if(currentHP <=0){
-            DeathSequence();
+           GetComponent<DeathHandler>().HandleDeath();
+            
         }
     }
 
     private void DeathSequence()
     {
       
+
     }
 }

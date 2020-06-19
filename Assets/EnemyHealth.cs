@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDmg(float dmg){
         currentHitPoints -= dmg;
-
+        BroadcastMessage("OnDamageTaken");
         if(currentHitPoints <=0)
         {
             DeathSequence();

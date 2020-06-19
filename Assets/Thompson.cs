@@ -10,6 +10,7 @@ public class Thompson : MonoBehaviour
     [SerializeField] float weaponDmg=10f;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
+    [SerializeField] Ammo ammoSlot;
 
     bool hitSomething;
     Animator myAnim;
@@ -17,6 +18,7 @@ public class Thompson : MonoBehaviour
     void Start()
     {
         myAnim = GetComponent<Animator>();
+        WeaponZoom zoom = FindObjectOfType<WeaponZoom>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class Thompson : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             Shoot();
         }
+        
     } 
     private void LateUpdate() {
         myAnim.SetBool("BoltOpen", false);
@@ -32,11 +35,19 @@ public class Thompson : MonoBehaviour
 
     private void Shoot()
     {
+        if(ammoSlot.GetCurrentAmmo()>0){
+            AnimShoot();
+            VFXMuzzleFlash();
+            RayCastProcess();
+            SpendAmmo();
+        }
+       
 
-        AnimShoot();
-        VFXMuzzleFlash();
-        RayCastProcess();
+    }
 
+    private void SpendAmmo()
+    {
+        ammoSlot.SpendAmmo();
     }
 
     private void VFXMuzzleFlash()
