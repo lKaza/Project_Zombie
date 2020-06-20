@@ -3,17 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thompson : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera fpsCamera;
     [SerializeField] float range=100;
     [SerializeField] float weaponDmg=10f;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] Ammo ammoSlot;
+    bool canShoot = true;
+    [SerializeField] float timeBetweenShoots = 0.1f;
 
     bool hitSomething;
     Animator myAnim;
+    
+    private void OnEnable() {
+        canShoot = true;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +31,9 @@ public class Thompson : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)){
-            Shoot();
+        if(Input.GetMouseButton(0) && canShoot){
+            StartCoroutine(Shoot());
+           
         }
         
     } 
@@ -33,21 +41,24 @@ public class Thompson : MonoBehaviour
         myAnim.SetBool("BoltOpen", false);
     }
 
-    private void Shoot()
+    IEnumerator Shoot()
     {
-        if(ammoSlot.GetCurrentAmmo()>0){
+        canShoot = false;
+        if(ammoSlot.GetCurrentAmmo(ammoType)>0){
+
             AnimShoot();
             VFXMuzzleFlash();
             RayCastProcess();
             SpendAmmo();
         }
        
-
+        yield return new WaitForSeconds(timeBetweenShoots);
+        canShoot = true;
     }
 
     private void SpendAmmo()
     {
-        ammoSlot.SpendAmmo();
+        ammoSlot.SpendAmmo(ammoType);
     }
 
     private void VFXMuzzleFlash()

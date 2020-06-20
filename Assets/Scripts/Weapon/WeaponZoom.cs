@@ -17,7 +17,7 @@ public class WeaponZoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fpsController = GetComponent<RigidbodyFirstPersonController>();
+        fpsController = GetComponentInParent<RigidbodyFirstPersonController>();
         initialSensitivity = fpsController.mouseLook.XSensitivity;
     }
 
@@ -26,6 +26,9 @@ public class WeaponZoom : MonoBehaviour
     {
         SetFOV();
         
+    }
+    private void OnDisable() {
+        fpsCamera.fieldOfView = zoomOut;
     }
 
 
